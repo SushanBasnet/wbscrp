@@ -2,9 +2,13 @@ from selenium import webdriver
 import re
 from ebay_entry import *
 from utils import *
+import os
 
+if (os.name == 'nt'):
+    driver = webdriver.Chrome(os.path.join(os.getcwd(), 'chromedriver.exe'))
+else:
+    driver = webdriver.Chrome()
 
-driver = webdriver.Chrome()
 driver.get("http://www.ebay.com")
 
 search_item = "Imax B6AC charger"
